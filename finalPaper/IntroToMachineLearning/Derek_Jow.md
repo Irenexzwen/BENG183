@@ -111,27 +111,25 @@ dissimilarity between members of the two clusters
 
 ## K-Means Clustering
 
-In **K-Means clustering**, we compute groups by minimizing the distance of each point to
-to its group's **mean**. Unlike hierarchical clustering, k-means clustering must arbitrarily
-choose **"k"**, the number of clusters, and consequently select k points to serve as the initial
-**means** for each cluster. At each iteration, we continuously reassign points such that they are grouped
-with the clusters that minimize the point's distance to the cluster's mean.
+The other algorithm we will cover is the k-means algorithm. Unlike hierarchical clustering, we know beforehand the number of clusters that we want (k). 
 
-![K-Means Clustering](img/kImg.png)
+The basic algorithm for k-means clustering is as follows: 
 
-The following is the general procedure of the k-means clustering algorithm:
-1. Select the number of clusters K
-2. Select the K starting points to serve as the initial cluster means
-3. Iterate through each point and calculate the distance between the datum and each cluster's mean
-4. Assign the datum to the cluster whose mean is closest to that point
-5. Repeat steps 3 and 4 until **convergence** - when points are no longer reassigned
+1. Choose a k-value for the number of clusters we want to end up with.
+2. Select k number of starting points that we want to initialize to start our clusters. 
+3. For each data point, find the closest mean vector and assign the object to the corresponding cluster.
+4. For each cluster, update its mean vector according to the current assignments.
 
-![K-Means Clustering](img/kClust.gif)
+<img src="https://github.com/Zhong-Lab-UCSD/BENG183_FA18/blob/master/Final%20Paper%20Submission_vwtom_attempt_2018-12-14-19-54-24_beng183-master/beng183-master/kImg.png">
 
-Note that K-Means clustering **does not always guarantee** termination. An upper bound for the number of iterations
-should be assigned to prevent infinite loops. Additionally, the selection of the initial points can
-**change the outcome**. Perhaps the selection of the initial points should be given careful
-consideration rather than an arbitrary choosing.
+We keep repeating the last two steps until a stopping criteria is met. Unlike the hierarchical clustering algorithm, the k-means clustering algorithm isn't always guaranteed to terminate. It can stop during **convergence**, when the algorithm no longer reassigns points, or it can run indefinitely until it stops at a user-defined number of iterations. 
+
+This contrasts with hierarchical clustering which has a more finite and predictable termination step (when everything is inside of one cluster). Additionally, the k-means algorithm may produce different outcomes based on how we initialize our initial k points. 
+
+Here is an animation that shows how  k-means clustering behaves. 
+
+<img src="https://github.com/Zhong-Lab-UCSD/BENG183_FA18/blob/master/Final%20Paper%20Submission_vwtom_attempt_2018-12-14-19-54-24_beng183-master/beng183-master/K-means_convergence.gif" width="400">
+
 
 * * *
 
